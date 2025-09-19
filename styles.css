@@ -1,0 +1,203 @@
+/* File: /css/styles.css */
+
+/* CSS BY [YOUR NAME HERE] */
+
+/* IMPORTED FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* CSS RESET */
+/* Why: ensure consistent base across browsers; opt-in to modern defaults */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html:focus-within { scroll-behavior: smooth; }
+html, body { height: 100%; }
+body { margin: 0; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+input, button, textarea, select { font: inherit; }
+:where(ul,ol){ padding: 0; margin: 0; list-style: none; }
+:where(h1,h2,h3,h4,h5,h6,p,figure){ margin: 0; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--champagne-gold); outline-offset: 2px; }
+
+/* ROOT VARIABLES */
+:root{
+  --midnight-blue: #1F2A44;
+  --olive-green:   #76885B;
+  --champagne-gold:#E5C185;
+  --linen:         #F8F4EC;
+  --dark-charcoal: #2B2B2B;
+  --soft-white:    #FAF9F6;
+
+  --bg: var(--linen);
+  --text: var(--dark-charcoal);
+  --brand: var(--midnight-blue);
+  --accent: var(--olive-green);
+
+  --radius: 1.25rem;
+  --shadow: 0 6px 24px rgba(31,42,68,0.08);
+  --container: 72rem; /* 1152px */
+}
+
+/* GLOBAL STYLES (mobile first/small) */
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  line-height: 1.6;
+  font-size: clamp(16px, 2.2vw, 18px);
+}
+h1,h2,h3{
+  font-family: "Playfair Display", ui-serif, Georgia, serif;
+  line-height: 1.2;
+  color: var(--brand);
+}
+h1{ font-size: clamp(2rem, 6vw, 3rem); }
+h2{ font-size: clamp(1.5rem, 3.5vw, 2.25rem); margin-block: 0 0.5rem; }
+h3{ font-size: clamp(1.125rem, 2.8vw, 1.5rem); }
+
+.container{
+  width: min(100% - 2rem, var(--container));
+  margin-inline: auto;
+}
+
+.skip-link{
+  position: absolute; inset-inline-start: 0.5rem; inset-block-start: -100%;
+  background: var(--brand); color: white; padding: 0.5rem 0.75rem; border-radius: 0.5rem;
+}
+.skip-link:focus{ inset-block-start: 0.5rem; }
+
+/* Header */
+.site-header{
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in oklab, var(--soft-white) 80%, white);
+  border-bottom: 1px solid color-mix(in oklab, var(--brand) 20%, transparent);
+  padding: 0.75rem 1rem;
+}
+.brand{ display: flex; align-items: center; gap: 0.75rem; }
+.brand-text{ display: grid; }
+.site-name{ font-weight: 700; color: var(--brand); font-family: "Playfair Display", ui-serif, Georgia, serif; }
+.tagline{ font-size: 0.9rem; color: var(--accent); }
+
+.primary-nav ul{ display: flex; gap: 1rem; margin-top: 0.75rem; }
+.primary-nav a{ padding: 0.5rem 0.75rem; border-radius: 999px; }
+.primary-nav a:hover{ background: var(--champagne-gold); color: var(--brand); }
+
+/* Hero */
+.hero{
+  padding-block: 1.25rem 2rem;
+  background:
+    radial-gradient(1000px 300px at 50% -200px, color-mix(in oklab, var(--champagne-gold) 35%, transparent), transparent 60%);
+}
+.hero-inner{ display: grid; gap: 1rem; }
+.hero p{ max-width: 65ch; }
+
+/* About */
+.about{ padding-block: 2rem; }
+
+/* Offerings */
+.offerings{ padding-block: 2rem; }
+.offerings-grid{
+  display: grid; gap: 1rem;
+}
+.card{
+  background: var(--soft-white);
+  border: 1px solid color-mix(in oklab, var(--brand) 8%, transparent);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+.card p{ margin-top: 0.5rem; }
+.basket-list{ margin-top: 0.75rem; padding-left: 1rem; list-style: disc; }
+
+/* Gallery */
+.gallery{ padding-block: 2rem 3rem; }
+.gallery-grid{
+  display: grid; gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+.gallery-item{
+  background: white;
+  border-radius: calc(var(--radius) - 0.25rem);
+  overflow: clip;
+  box-shadow: var(--shadow);
+}
+.gallery-item img{ width: 100%; height: auto; display: block; }
+.gallery-item figcaption{
+  font-size: 0.95rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--linen);
+  color: var(--brand);
+}
+
+/* CTA Button */
+.button{
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: var(--brand);
+  color: white;
+  font-weight: 600;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+.button:hover{ transform: translateY(-1px); opacity: 0.95; }
+
+/* Footer */
+.site-footer{
+  background: var(--midnight-blue);
+  color: white;
+  padding-block: 1.5rem 2rem;
+}
+.site-footer a{ color: var(--champagne-gold); text-decoration: underline; text-underline-offset: 0.2em; }
+.site-footer .social{ display: flex; gap: 1rem; margin-top: 0.5rem; }
+
+/* Utilities */
+.visually-hidden{
+  position: absolute !important;
+  width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* MEDIA QUERY (medium) */
+@media (min-width: 600px){
+  .primary-nav ul{ gap: 1.25rem; }
+  .hero-inner{ grid-template-columns: 1fr; }
+  .offerings-grid{ grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* MEDIA QUERY (large) */
+@media (min-width: 900px){
+  .site-header{
+    padding: 1rem 2rem;
+  }
+  .site-header .brand{ gap: 1rem; }
+  .site-header,
+  .brand,
+  .primary-nav ul{
+    /* Why: grid header for better alignment at large sizes */
+  }
+  .site-header{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .primary-nav ul{ margin-top: 0; }
+
+  .hero-inner{
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 2rem;
+  }
+  .offerings-grid{ grid-template-columns: repeat(3, 1fr); }
+  .gallery-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* MEDIA QUERY (xl) */
+@media (min-width: 1200px){
+  .container{ width: min(100% - 4rem, var(--container)); }
+  .hero{ padding-block: 2rem 3rem; }
+  .gallery-grid{ grid-template-columns: repeat(4, 1fr); }
+}
