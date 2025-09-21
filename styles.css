@@ -1,5 +1,5 @@
 /* File: /styles.css */
-/* CSS BY [YOUR NAME HERE] */
+/* CSS BY [Benoit Hayek] */
 
 /* IMPORTED FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
@@ -58,7 +58,7 @@ h3{font-size: clamp(1.125rem, 3vw, 1.5rem)}
 /* HERO (navy band) */
 .site-hero{background:var(--brand); color:#fff; padding:2.25rem 0 1.75rem}
 .site-hero .hero-inner{display:grid; place-items:center; gap:.75rem; text-align:center}
-.logo-mark img{filter: drop-shadow(0 2px 0 rgba(0,0,0,.05))} /* WHY: gives subtle depth */
+.logo-mark img{filter: drop-shadow(0 2px 0 rgba(0,0,0,.05))} 
 .site-hero h1{color:#fff}
 .site-hero .tagline{color:#fff; opacity:.9}
 
